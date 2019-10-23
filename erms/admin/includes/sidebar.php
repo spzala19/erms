@@ -33,7 +33,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item" id="addemp">
-        <a class="nav-link" href="addempprofile.php">
+        <a class="nav-link">
         <i class="fas fa-user-plus"></i>
           <span>Add Employees</span></a>
       </li>

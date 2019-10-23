@@ -147,7 +147,95 @@ $cnt=$cnt+1;
     <!-- End of Content Wrapper -->
 
   </div>
+   <!---********************************************************************************************-->
+ <!---*****************************************REGISTER MODAL*******************************************-->
+ <!---********************************************************************************************-->
+ <div class="container">
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+				<div class="modal-header" style="padding:35px 50px;">
+        <h4>Register</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body" style="padding:40px 50px;">
+				<div>
+        
+        </div>
+				<form role="form" id="rform" method="post">
+					<div class="form-group" >
+					<label for="FirstName" id="intext"><span class="glyphicon glyphicon-user"></span> First Name</label>
+					<input type="text" class="form-control" name="FirstName" placeholder="Enter First Name" requred  >
+					</div>
+					<div class="form-group" >
+					<label for="LastName" id="intext"><span class="glyphicon glyphicon-user"></span> Last Name</label>
+					<input type="text" class="form-control" name="LastName" placeholder="Enter Last Name"  required>
+					</div>
+					<div class="form-group">
+					<label for="Email" id="intext"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+					<input type="text" class="form-control" name="Email" placeholder="Enter email"  required>
+					</div>
+					<div class="form-group">
+					<label for="psw" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Employee Code &nbsp <label class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Password Must Contain One Uppercase,Lowercase And Digit"></label></label>
+          <input type="text" class="form-control form-control-user" id="EmpCode" name="EmpCode" ></div>
+					<div class="form-group">
+					<label for="cpsw1" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Employee Dept</label>
+          <input type="text" class="form-control form-control-user" id="EmpDept" name="EmpDept"  >
+					</div>
+					<div class="form-group">
+					<label for="cpsw2" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Employee Desigantion</label>
+          <input type="text" class="form-control form-control-user" id="EmpDesignation" name="EmpDesignation" aria-describedby="emailHelp"  >
+					</div>
+					<div class="form-group">
+					<label for="cpsw3" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Employee Contact No.</label>
+          <input type="text" class="form-control form-control-user" id="EmpContactNo" name="EmpContactNo" aria-describedby="emailHelp"  >
+					</div>
+					<div class="form-group">
+					<label for="cpsw4" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Employee Joing Date(yyyy-mm-dd)</label>
+          <input type="text" class="form-control form-control-user" id="jDate" name="EmpJoingdate" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+					<label for="cpsw5" id="intext"><span class="glyphicon glyphicon-eye-close"></span> Gender </label>
+          <input type="radio" id="gender" name="gender" value="Male" checked="true">Male
+          <input type="radio" name="gender" value="Female">Female          
+          </div>
+				
+					<button type="submit" class="btn btn-warning btn-block"><span class="glyphicon  glyphicon-book"></span> Sign Up</button>
+				</form>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+				</div>
+      			</div>
+				</div>
+				</div>
   <!-- End of Page Wrapper -->
+  
+  <!-- Custom AJAX code -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $("#addemp").click(function(){
+  $("#myModal").modal();
+  });        
+    $('#rform').on('submit', function (event) {
+
+      event.preventDefault();// using this page stop being refreshing 
+        alert($('form').serialize())
+        $.ajax({
+          type: 'POST',
+          url: 'addempprofile.php',
+          data: $('form').serialize(),
+          success: function (resp) {
+            alert(resp)
+          }
+        });
+
+      });
+    </script>
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
